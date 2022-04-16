@@ -1,39 +1,35 @@
 {
-	"name": "Awesome Extension",
+	"name": "Github Review In Progress",
 	"version": "0.0.0",
-	"description": "An awesome new browser extension",
-	"homepage_url": "https://github.com/fregante/browser-extension-template",
+	"description": "Show review status in Github Pull Requests",
+	"homepage_url": "https://github.com/domnantas/github-review-in-progress",
 	"manifest_version": 2,
 	"minimum_chrome_version": "80",
 	"browser_specific_settings": {
 		"gecko": {
-			"id": "awesome-extension@notlmn.github.io",
+			"id": "github-review-in-progress@domnantas.lt",
 			"strict_min_version": "80.0"
 		}
 	},
 	"icons": {
-		"128": "icon.png"
+		"16": "icon16.png",
+		"48": "icon48.png",
+		"128": "icon128.png"
 	},
-	"permissions": [
-		"https://github.com/fregante/browser-extension-template/*",
-		"storage"
-	],
+	"permissions": ["storage", "activeTab"],
 	"content_scripts": [
 		{
-			"matches": [ "https://github.com/fregante/browser-extension-template/*" ],
-			"js": [ "content.js" ],
-			"css": [ "content.css" ],
+			"matches": ["https://github.com/*"],
+			"js": ["githubReviewInProgress.js"],
+			"css": ["githubReviewInProgress.css"],
 			"run_at": "document_end"
 		}
 	],
 	"options_ui": {
-		"browser_style": true,
 		"page": "options.html"
 	},
 	"background": {
 		"persistent": false,
-		"scripts": [
-			"background.js"
-		]
+		"scripts": ["background.js"]
 	}
 }
