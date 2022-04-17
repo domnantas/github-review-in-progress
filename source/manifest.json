@@ -5,6 +5,12 @@
 	"homepage_url": "https://github.com/domnantas/github-review-in-progress",
 	"manifest_version": 2,
 	"minimum_chrome_version": "80",
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "github-review-in-progress@domnantas.lt",
+			"strict_min_version": "80.0"
+		}
+	},
 	"icons": {
 		"16": "icon16.png",
 		"48": "icon48.png",
