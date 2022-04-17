@@ -1,13 +1,10 @@
 {
-	"name": "Github Review In Progress",
+	"name": "GitHub Review In Progress",
 	"version": "0.0.0",
-	"description": "Show review status in Github Pull Requests",
+	"description": "Show review status in GitHub Pull Requests",
 	"homepage_url": "https://github.com/domnantas/github-review-in-progress",
 	"manifest_version": 2,
 	"minimum_chrome_version": "80",
-	"browser_action": {
-		"default_icon": "icon128.png"
-	},
 	"icons": {
 		"16": "icon16.png",
 		"48": "icon48.png",

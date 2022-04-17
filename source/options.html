@@ -1,14 +1,29 @@
 <!DOCTYPE html>
 <meta charset="utf-8" />
-<title>Github Review In Progress options</title>
+<title>GitHub Review In Progress options</title>
 
 <form id="options-form" class="detail-view-container">
-	<h3>Github Review In Progress</h3>
-	<p>test</p>
 	<div class="text-inputs">
 		<label class="text-input">
-			<span>Text</span>
-			<input type="text" name="text" />
+			<strong>Personal GitHub token</strong>
+			(<a
+				id="personal-token-link"
+				href="https://github.com/settings/tokens/new?description=GitHub%20Review%20In%20Progress&scopes=repo,delete_repo"
+				target="_blank"
+				>generate one</a
+			>)
+			<br />
+			<!-- placeholder is set to enable use of :placeholder-shown CSS selector -->
+			<input
+				type="text"
+				name="personalToken"
+				pattern="[\da-f]{40}|ghp_\w{36,251}"
+				placeholder=" "
+				spellcheck="false"
+				autocomplete="off"
+				autocapitalize="off"
+			/>
+			<span id="validation"></span>
 		</label>
 	</div>
 </form>

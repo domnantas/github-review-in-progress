@@ -1,8 +1,8 @@
-# Github Review In Progress
+# GitHub Review In Progress
 
 ![Logo](source/icon128.png)
 
-Browser extension which allows you to see when your pull requests are being reviewed on Github.
+Browser extension which allows you to see when your pull requests are being reviewed on GitHub.
 
 ### 🏗 Development
 
