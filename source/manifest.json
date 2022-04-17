@@ -5,11 +5,8 @@
 	"homepage_url": "https://github.com/domnantas/github-review-in-progress",
 	"manifest_version": 2,
 	"minimum_chrome_version": "80",
-	"browser_specific_settings": {
-		"gecko": {
-			"id": "github-review-in-progress@domnantas.lt",
-			"strict_min_version": "80.0"
-		}
+	"browser_action": {
+		"default_icon": "icon128.png"
 	},
 	"icons": {
 		"16": "icon16.png",
@@ -26,7 +23,8 @@
 		}
 	],
 	"options_ui": {
-		"page": "options.html"
+		"page": "options.html",
+		"chrome_style": true
 	},
 	"background": {
 		"persistent": false,
