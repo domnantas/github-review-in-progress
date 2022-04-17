@@ -8,10 +8,13 @@ Browser extension which allows you to see when your pull requests are being revi
 
 ```sh
 npm i
+# Bundle the extension
 npm start
-# Launch Firefox
+
+# Another terminal
+# Start Firefox
 npm run start:firefox
-# or Chrome
+# or Chromium
 npm run start:chrome
 ```
 
