@@ -1,0 +1,33 @@
+{
+	"name": "server",
+	"private": true,
+	"scripts": {
+		"dev": "ts-node-dev --respawn ./source/index.ts",
+		"build": "tsc",
+		"lint": "xo source",
+		"lint:fix": "xo source --fix"
+	},
+	"dependencies": {
+		"@types/express": "^4.17.13",
+		"express": "^4.17.3"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.23",
+		"ts-node-dev": "^1.1.8",
+		"typescript": "^4.6.3",
+		"xo": "^0.48.0"
+	},
+	"xo": {
+		"envs": [
+			"node"
+		],
+		"rules": {
+			"unicorn/filename-case": [
+				"error",
+				{
+					"case": "camelCase"
+				}
+			]
+		}
+	}
+}

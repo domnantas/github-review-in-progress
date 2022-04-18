@@ -6,8 +6,8 @@
 		"dev:firefox": "web-ext run",
 		"dev:chrome": "web-ext run -t chromium",
 		"build": "parcel build source/manifest.json --no-content-hash --no-source-maps --dist-dir distribution --no-cache --detailed-report 0",
-		"lint": "xo && stylelint source/**/*.css",
-		"lint:fix": "xo --fix && stylelint source/**/*.css --fix"
+		"lint": "xo source && stylelint source/**/*.css",
+		"lint:fix": "xo source --fix && stylelint source/**/*.css --fix"
 	},
 	"dependencies": {
 		"github-url-detection": "^5.10.0",

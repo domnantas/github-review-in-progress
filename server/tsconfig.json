@@ -1,0 +1,13 @@
+{
+	"compilerOptions": {
+		"target": "es2021", // es2021 is supported by Node v16 and most browsers. Change this if you want to support older runtimes
+		"module": "commonjs",
+		"outDir": "distribution",
+		"rootDir": "source",
+		"sourceMap": true,
+		"allowJs": true,
+		"strict": true,
+		"esModuleInterop": true
+	},
+	"include": ["source/**/*"]
+}
