@@ -1,7 +1,13 @@
+import * as pageDetect from 'github-url-detection';
 import optionsStorage from './optionsStorage.js';
 
 async function init() {
 	const {personalToken} = await optionsStorage.getAll();
+
+	if (pageDetect.isPR()) {
+		// but this executes only on page reload :(
+		console.log('You\'re looking at a pr!')
+	}
 
 	const githubGraphqlUrl = 'https://api.github.com/graphql';
 

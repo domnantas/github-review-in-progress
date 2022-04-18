@@ -19,7 +19,7 @@
 	"permissions": ["storage", "activeTab", "https://api.github.com/*"],
 	"content_scripts": [
 		{
-			"matches": ["https://github.com/*"],
+			"matches": ["https://github.com/*/*/pull/*"],
 			"js": ["githubReviewInProgress.js"],
 			"css": ["githubReviewInProgress.css"],
 			"run_at": "document_end"
