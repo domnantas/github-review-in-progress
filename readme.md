@@ -8,14 +8,14 @@ Browser extension which allows you to see when your pull requests are being revi
 
 ```sh
 npm i
-# Bundle the extension
-npm start
+npm run dev
 
 # Another terminal
+cd extension
 # Start Firefox
-npm run start:firefox
+npm run dev:firefox
 # or Chromium
-npm run start:chrome
+npm run dev:chrome
 ```
 
 #### Manually
