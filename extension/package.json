@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"github-url-detection": "^5.10.0",
+		"socket.io-client": "^4.4.1",
 		"webext-base-css": "^1.4.0",
 		"webext-options-sync": "^3.0.1",
 		"webextension-polyfill": "^0.8.0"

@@ -1,11 +1,16 @@
-import express, {Express, Request, Response} from 'express';
+import {Server} from 'socket.io';
 
-const app: Express = express();
+const io = new Server({
+	cors: {
+		origin: 'https://github.com',
+	},
+});
+io.on('connection', socket => {
+	console.log('Client connected');
 
-app.get('/', (request: Request, response: Response) => {
-	response.send('<h1>Hello world</h1>');
+	socket.on('disconnect', () => {
+		console.log('Client disconnected');
+	});
 });
 
-app.listen(3000, () => {
-	console.log('Server is running at http://localhost:3000');
-});
+io.listen(3000);

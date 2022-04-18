@@ -16,7 +16,12 @@
 		"48": "icon48.png",
 		"128": "icon128.png"
 	},
-	"permissions": ["storage", "activeTab", "https://api.github.com/*"],
+	"permissions": [
+		"storage",
+		"activeTab",
+		"https://api.github.com/*",
+		"http://localhost/*"
+	],
 	"content_scripts": [
 		{
 			"matches": ["https://github.com/*", "https://gist.github.com/*"],
