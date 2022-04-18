@@ -5,8 +5,7 @@ async function init() {
 	const {personalToken} = await optionsStorage.getAll();
 
 	if (pageDetect.isPR()) {
-		// but this executes only on page reload :(
-		console.log('You\'re looking at a pr!')
+		console.log('You\'re looking at a pr!');
 	}
 
 	const githubGraphqlUrl = 'https://api.github.com/graphql';
@@ -31,3 +30,7 @@ async function init() {
 }
 
 init();
+
+document.addEventListener('pjax:end', () => {
+	init();
+});
