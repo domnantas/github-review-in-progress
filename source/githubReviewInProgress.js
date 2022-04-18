@@ -1,36 +1,24 @@
 import * as pageDetect from 'github-url-detection';
 import optionsStorage from './optionsStorage.js';
+import {fetchGithub} from './githubApi.js';
 
-async function init() {
+const init = async () => {
 	const {personalToken} = await optionsStorage.getAll();
 
-	if (pageDetect.isPR()) {
-		console.log('You\'re looking at a pr!');
+	if (!personalToken) {
+		console.log('Github Review In Progress: Personal token not set');
+		return;
 	}
 
-	const githubGraphqlUrl = 'https://api.github.com/graphql';
-
-	fetch(githubGraphqlUrl, {
-		method: 'POST',
-		headers: {
-			Authorization: `bearer ${personalToken}`,
-		},
-		body: JSON.stringify({
-			query: `
-				query {
-					viewer {
-						login
-					}
-				}
-			`,
-		}),
-	})
-		.then(response => response.json())
-		.then(result => console.log(result));
-}
+	if (pageDetect.isPR()) {
+		const login = await fetchGithub('{ viewer { login } }');
+		console.log(login);
+	}
+};
 
 init();
 
 document.addEventListener('pjax:end', () => {
+	// Github uses pjax and acts sort of like SPA, pjax:end is fired on each navigation
 	init();
 });
