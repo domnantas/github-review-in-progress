@@ -5,12 +5,21 @@ const io = new Server({
 		origin: 'https://github.com',
 	},
 });
-io.on('connection', socket => {
-	console.log('Client connected');
 
-	socket.on('disconnect', () => {
-		console.log('Client disconnected');
+interface View {
+	username: string;
+	prNumber: number;
+}
+
+const views: View[] = [];
+
+io.on('connection', socket => {
+	socket.on('view', ({username, prNumber}: View) => {
+		views.push({username, prNumber});
+		io.emit('view list', views);
 	});
+
+	socket.emit('view list', views);
 });
 
 io.listen(3000);
