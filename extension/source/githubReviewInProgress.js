@@ -14,21 +14,31 @@ const init = async () => {
 			return;
 		}
 
-		const socket = io('http://localhost:3000');
-
+		const username = getUsername();
+		const repositoryOwner = getRepositoryInfo().owner;
+		const repositoryName = getRepositoryInfo().name;
 		const prNumber = location.pathname.split('/')[4];
+		const prPath = `${repositoryOwner}/${repositoryName}#${prNumber}`;
 
-		socket.on('view list', list => {
-			const prViewList = list.filter(view => view.prNumber === prNumber);
-			for (const view of prViewList) {
-				const assigneeElement = document.querySelector(`[data-assignee-name="${view.username}"]`);
+		const socket = io('http://localhost:3000', {
+			auth: {
+				username,
+			},
+		});
+
+		socket.emit('join', prPath);
+		console.log(`Joining ${prPath}`);
+
+		socket.on('users', users => {
+			for (const username of users) {
+				const assigneeElement = document.querySelector(`[data-assignee-name="${username}"]`);
 				assigneeElement.nextElementSibling.classList.add('github-review-in-progress');
 			}
 		});
 
 		const {repository} = await fetchGithub(`
 		{
-			repository(owner: "${getRepositoryInfo().owner}", name: "${getRepositoryInfo().name}") {
+			repository(owner: "${repositoryOwner}", name: "${repositoryName}") {
 				pullRequest(number: 1) {
 					author {
 						login
@@ -37,13 +47,7 @@ const init = async () => {
 			}
 		}`);
 
-		const username = getUsername();
 		const isAuthor = repository.pullRequest.author.login === username;
-
-		if (!isAuthor) {
-			socket.emit('view', {username, prNumber});
-		}
-
 		console.log(isAuthor);
 	}
 };
