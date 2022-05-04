@@ -1,3 +1,24 @@
 .github-review-in-progress {
-	border: solid 2px #0f0;
+	position: relative;
+	top: 7px;
+	left: 10px;
+	width: 8px;
+	height: 8px;
+	background-color: rgb(87 171 90);
+	border-radius: 16px;
+	animation: shadow-pulse 2s infinite;
+}
+
+@keyframes shadow-pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgb(87 171 90 / 70%);
+	}
+
+	70% {
+		box-shadow: 0 0 0 8px rgb(87 171 90/ 0%);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgb(87 171 90 / 0%);
+	}
 }

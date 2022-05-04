@@ -34,7 +34,7 @@ io.on('connection', socket => {
 
 		io.in(prPath).emit('users', prUsers);
 		console.log(`${username} joined ${prPath}`);
-		console.log(`List of users: ${prUsers}`);
+		console.log(`List of users: ${prUsers.toString()}`);
 	});
 });
 
